@@ -20,6 +20,7 @@ jobs:
           flutter-version: stable
       - name: Install Flutter Dependencies
         run: flutter pub get
+        working-directory: ./printing_manager
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
