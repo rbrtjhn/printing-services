@@ -14,13 +14,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: stable
+          channel: stable # <-- THIS FIXES THE PROFESSOR'S BUG
+          
       - name: Install Flutter Dependencies
         run: flutter pub get
-        working-directory: ./printing_manager
+        working-directory: ./printing_manager # <-- THIS TELLS IT WHERE YOUR SPECIFIC CODE IS
+        
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
